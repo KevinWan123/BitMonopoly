@@ -35,12 +35,12 @@
                 
 
                 localStorage.setItem("Time",parseInt(localStorage.getItem("Time"))+1)
-                let changetime = 'Months '+ parseInt(localStorage.getItem("Time")||0)
+                let changetime = 'Month '+ parseInt(localStorage.getItem("Time")||0)
                 
                 
-                document.getElementById('Months').innerHTML= changetime.bold()
+                document.getElementById('Month').innerHTML= changetime.bold()
                 
-                console.log(localStorage.getItem("Months"))
+                console.log(localStorage.getItem("Month"))
 
                 localStorage.setItem("Bit", parseFloat(localStorage.getItem("Bit"))+parseFloat(localStorage.getItem("Income")))
                 console.log('income',localStorage.getItem("Income")||0,localStorage.getItem("Bit"))
@@ -66,7 +66,7 @@
                 <div class="Title"><h1>BitMonopoly</h1></div>
                 <div class="News" id = "Newspaper">A form of decentralized virtual curency has been invented ...</div>
                 <div class="Stats"><p1 id = "Exchange"><b> BTC = 100 USD</b></p1> 
-                <p1 id = "Months"> <b>Months 0</b></p1>
+                <p1 id = "Month"> <b>Month 0</b></p1>
                 <p1 id = "btc"><b>BTC: = 0.000</b></p1></div>
                 
                 <div class="Items">
@@ -79,7 +79,7 @@
                 <script src="main.js"></script>
                 <div class="Bank"><h1>bank</h1>
                     <p1 id ='Balance'>Balance = $0.000</p1>
-                    <button id="buybtc" onclick="">Buy BTC</button>
+                    <button id="buybtc" onclick="buy()">Buy BTC</button>
                     <button onclick= "sell()" >Sell BTC</button>
                     <br>
                     <p1>Current Electricity Price = $100 per Watt</p1>
@@ -111,10 +111,10 @@
                 
                         console.log('My new bit value is', localStorage.getItem('Bit'))
                         
-                        let changetime = 'Months '+ parseInt(localStorage.getItem("Time"))
+                        let changetime = 'Month '+ parseInt(localStorage.getItem("Time"))
                         let mystring = "BTC: "+ parseFloat(localStorage.getItem("Bit")).toFixed(3)
                         let exchange = "BTC = $"+ parseFloat(localStorage.getItem("ExchangeRate")).toFixed(3)
-                        document.getElementById('Months').innerHTML= changetime.bold()
+                        document.getElementById('Month').innerHTML= changetime.bold()
                         document.getElementById('btc').innerHTML= mystring.bold()
                         document.getElementById('Exchange').innerHTML= exchange.bold()
                         }
@@ -122,8 +122,8 @@
                         function updatetime(){
 
                             
-                            let changetime = 'Months '+ parseInt(localStorage.getItem("Time"))
-                            document.getElementById('Months').innerHTML= changetime.bold()
+                            let changetime = 'Month '+ parseInt(localStorage.getItem("Time"))
+                            document.getElementById('Month').innerHTML= changetime.bold()
                         }
 
     </script>
