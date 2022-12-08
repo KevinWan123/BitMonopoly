@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <script src = "itemclass.js"></script>
+        <script>
+            // Initializes Variables if it is the first time
+                if (localStorage.getItem('First') == null){
+
+                
+                console.log('First time')
+                
+
+                localStorage.setItem('Time',0);
+                localStorage.setItem('Bit',0);
+                localStorage.setItem('ExchangeRate',100);
+                console.log(localStorage.getItem('ExchangeRate'));
+                localStorage.setItem('rasQuan',0)
+                localStorage.setItem('calcQuan',0)
+
+                localStorage.setItem('First',0);
+                
+            }
+        </script>
+        <script>            
+            function addtime(){
+                var randomnum = (Math.random() * (3 - 0 + 1) ) << 0
+
+                const Events = ['An increase interest in crypto from retail investors has increased the price of BTC!', 'A major crypto exchange has crashed due to misallocation of investor\'s funds!','A new disease that is extremely infectious is spreading throughout the country. Officials have decided that shutting down the country is for the best interest of the country. Investors are running to withdraw their money!','Surprisingly Nothing has happend this year']
+                console.log(Events[randomnum])
+
+                document.getElementById("Newspaper").innerHTML = Events[randomnum]
+
+                localStorage.setItem("Time",parseInt(localStorage.getItem("Time"))+1)
+                let changetime = 'Years '+ parseInt(localStorage.getItem("Time")||0)
+                
+                
+                document.getElementById('Years').innerHTML= changetime.bold()
+                
+                console.log(localStorage.getItem("Time"))
+
+                localStorage.setItem("Bit", parseFloat(localStorage.getItem("Bit"))+parseFloat(localStorage.getItem("Income")|| 0))
+                console.log('income',localStorage.getItem("Income")||0,localStorage.getItem("Bit"))
+                let changebtc = 'BTC: '+ parseFloat(localStorage.getItem("Bit")).toFixed(3)
+                console.log(parseInt(localStorage.getItem("Bit"), parseFloat(localStorage.getItem("Income"))||0))
+                document.getElementById('btc').innerHTML= changebtc.bold()
+
+
+
+            }
+                
+            
+            
+            setInterval(addtime,10000)
+        </script>
+        <link href = "newstyle.css" rel = "stylesheet"></link>
+        <body>
+            <audio id ='click1' src ="Assets/Sounds/clickb5.wav"></audio>
+            <div class="container">
+                <div class="Title"><h1>BitMonopoly</h1></div>
+                <div class="News" id = "Newspaper">A form of decentralized virtual curency has been invented ...</div>
+                <div class="Stats"><p1 id = "Exchange"><b> BTC = 100 USD</b></p1> 
+                <p1 id = "Years"> <b>Years 0</b></p1>
+                <p1 id = "btc"><b>BTC: = 0.000</b></p1></div>
+                
+                <div class="Items">
+                    <input id="Calculator" type="button" value="Calculator(0.1BTC): 0" onclick= "Calculator()">
+                    <input id = "pi" type="button" value="Raspberry Pi(1 BTC): 0" onclick="Rpi()">
+
+                    
+                </div>
+                <div class="Bitcoin"><button id ="bitcoin" onclick="mineBTC()"></div>
+                <script src="main.js"></script>
+                <div class="Bank"><h1>bank</h1>
+                    <p1>Balance = $0.000</p1>
+                    <button>Buy BTC</button>
+                    <button>Sell BTC</button>
+                    <br>
+                    <p1>Current Electricity Price = $100 per Watt</p1>
+                    <br>
+                    <p1>Money In Bond(Current Interest Rate is 1.5%):</p1>
+                    <button>Buy Bonds</button>
+                    <button>Sell Bonds</button>
+
+                    
+                </div>
+                <div class="Options"><input type='button' onclick ="clearstorage()" value ="clear">
+                    <input type="button" onclick="updatetime()" value = "update">
+                    <script>
+                        function clearstorage(){
+                        console.log('pressed');
+                        
+                        localStorage.setItem('Time',0)
+                        localStorage.setItem('Bit',0)
+                        localStorage.setItem('Income',0)
+                        localStorage.setItem('ExchangeRate',100)
+                        console.log('My new bit value is', localStorage.getItem('Bit'))
+                        
+                        let changetime = 'Years '+ parseInt(localStorage.getItem("Time"))
+                        let mystring = "BTC: "+ parseFloat(localStorage.getItem("Bit")).toFixed(3)
+                        let exchange = "BTC = $"+ parseFloat(localStorage.getItem("ExchangeRate")).toFixed(3)
+                        document.getElementById('Years').innerHTML= changetime.bold()
+                        document.getElementById('btc').innerHTML= mystring.bold()
+                        document.getElementById('Exchange').innerHTML= exchange.bold()
+                        }
+
+                        function updatetime(){
+
+                            
+                            let changetime = 'Years '+ parseInt(localStorage.getItem("Time"))
+                            document.getElementById('Years').innerHTML= changetime.bold()
+                        }
+
+    </script>
+    <p1> Game Made By Kevin Wan</p1>
+                </div>
+              </div>
+        </body>
+        
+    </head>
+</html>
