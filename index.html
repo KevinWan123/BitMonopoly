@@ -79,7 +79,7 @@
                 <script src="main.js"></script>
                 <div class="Bank"><h1>bank</h1>
                     <p1 id ='Balance'>Balance = $0.000</p1>
-                    <button id="buybtc" onclick="buy()">Buy BTC</button>
+                    <button id="buybtc" onclick="">Buy BTC</button>
                     <button onclick= "sell()" >Sell BTC</button>
                     <br>
                     <p1>Current Electricity Price = $100 per Watt</p1>
@@ -96,11 +96,19 @@
                     <script>
                         function clearstorage(){
                         console.log('pressed');
+
                         
-                        localStorage.setItem('Time',0)
-                        localStorage.setItem('Bit',0)
-                        localStorage.setItem('Income',0)
-                        localStorage.setItem('ExchangeRate',100)
+                        localStorage.setItem('Time',0);
+                    localStorage.setItem('Bit',0);
+                    localStorage.setItem('ExchangeRate',100);
+                    console.log(localStorage.getItem('ExchangeRate'));
+                    localStorage.setItem('rasQuan',0)
+                    localStorage.setItem('calcQuan',0)
+                    localStorage.setItem("Income",0)
+
+                    localStorage.setItem('First',0);
+                    localStorage.setItem('Fiat',0);
+                
                         console.log('My new bit value is', localStorage.getItem('Bit'))
                         
                         let changetime = 'Months '+ parseInt(localStorage.getItem("Time"))
