@@ -83,6 +83,7 @@
 
                     
                 </div>
+                <!-- Button to click-->
                 <div class="Bitcoin"><button id ="bitcoin" onclick="mineBTC()"></div>
                 <script src="main.js"></script>
                 <div class="Bank"><h1>bank</h1>
@@ -96,7 +97,33 @@
                     <button>Buy Bonds</button>
                     <button>Sell Bonds</button>
                     <p1 id = "income">Income: $0.000</p1>
-
+                        <!-- Achievements Section -->
+                <div class="Achievements">
+                    <h3>Achievements:</h3>
+                    <ul id="achievementList">
+                        <li id="achievement1">Buy Your First Item (Locked)</li>
+                        <li id="achievement2">Earn 10 BTC (Locked)</li>
+                        <li id="achievement3">Own 10 Items (Locked)</li>
+                        <li id="achievement4">Earn 100 BTC (Locked)</li>
+                        <li id="achievement5">Own 5 Calculators (Locked)</li>
+                        <li id="achievement6">Own 3 Raspberry Pis (Locked)</li>
+                        <li id="achievement7">Buy a GPU Miner (Locked)</li>
+                        <li id="achievement8">Generate 100 Watts of Power (Locked)</li>
+                        <li id="achievement9">Earn 1,000 BTC in Total (Locked)</li>
+                        <li id="achievement10">Buy an AI Miner (Locked)</li>
+                        <!-- New Achievements -->
+                        <li id="achievement11">Buy an ASIC Miner (Locked)</li>
+                        <li id="achievement12">Own 3 Mining Farms (Locked)</li>
+                        <li id="achievement13">Buy a Quantum Miner (Locked)</li>
+                        <li id="achievement14">Earn 10,000 BTC (Locked)</li>
+                        <li id="achievement15">Reach 10,000 Watts of Power (Locked)</li>
+                        <li id="achievement16">Buy a Hydro Plant (Locked)</li>
+                        <li id="achievement17">Own 5 AI Miners (Locked)</li>
+                        <li id="achievement18">Buy a Space Miner (Locked)</li>
+                        <li id="achievement19">Earn 50,000 BTC (Locked)</li>
+                        <li id="achievement20">Own 50 Items in Total (Locked)</li>
+                    </ul>
+                </div>
                     
                 </div>
                 <div class="Options"><input type='button' onclick ="clearstorage()" value ="clear">
@@ -133,8 +160,7 @@
                             let changetime = 'Month '+ parseInt(localStorage.getItem("Time"))
                             document.getElementById('Month').innerHTML= changetime.bold()
                         }
-
-
+                        
 
     </script>
     <p1> Game Made By Kevin Wan</p1>

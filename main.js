@@ -8,7 +8,9 @@ function mineBTC(){
 
     let mystring = "BTC: "+ parseFloat(localStorage.getItem("Bit")).toFixed(3)
     document.getElementById('btc').innerHTML = mystring.bold();
-   
+
+    // Check achievements
+    checkAchievements();
 
 
 }
@@ -73,6 +75,7 @@ function purchaseItem(item, storageKey, elementId, buttonText) {
 
         // Recalculate income
         income();
+        checkAchievements();
     } else {
         console.log(`Not enough BTC to purchase ${storageKey}`);
     }
@@ -136,7 +139,81 @@ function buy(){
 
     }
 }
+// Achievement Dicstionary
+const achievements = {
+    1: { unlocked: false, message: "Bought your first item!", condition: () => totalItemsBought() >= 1 },
+    2: { unlocked: false, message: "Earned 10 BTC!", condition: () => parseFloat(localStorage.getItem("Bit")) >= 10 },
+    3: { unlocked: false, message: "Owned 10 items!", condition: () => totalItemsBought() >= 10 },
+    4: { unlocked: false, message: "Earned 100 BTC!", condition: () => parseFloat(localStorage.getItem("Bit")) >= 100 },
+    5: { unlocked: false, message: "Owned 5 Calculators!", condition: () => itemCalc.quantity >= 5 },
+    6: { unlocked: false, message: "Owned 3 Raspberry Pis!", condition: () => itemRspi.quantity >= 3 },
+    7: { unlocked: false, message: "Bought a GPU Miner!", condition: () => itemGpu.quantity >= 1 },
+    8: { unlocked: false, message: "Generated 100 Watts of Power!", condition: () => totalPowerGenerated() >= 100 },
+    9: { unlocked: false, message: "Earned 1,000 BTC in Total!", condition: () => parseFloat(localStorage.getItem("Bit")) >= 1000 },
+    10: { unlocked: false, message: "Bought an AI Miner!", condition: () => itemAiMiner.quantity >= 1 },
+    11: { unlocked: false, message: "Bought an ASIC Miner!", condition: () => itemAsic.quantity >= 1 },
+    12: { unlocked: false, message: "Owned 3 Mining Farms!", condition: () => itemFarm.quantity >= 3 },
+    13: { unlocked: false, message: "Bought a Quantum Miner!", condition: () => itemQuantumMiner.quantity >= 1 },
+    14: { unlocked: false, message: "Earned 10,000 BTC!", condition: () => parseFloat(localStorage.getItem("Bit")) >= 10000 },
+    15: { unlocked: false, message: "Reached 10,000 Watts of Power!", condition: () => totalPowerGenerated() >= 10000 },
+    16: { unlocked: false, message: "Bought a Hydro Plant!", condition: () => itemHydroPlant.quantity >= 1 },
+    17: { unlocked: false, message: "Owned 5 AI Miners!", condition: () => itemAiMiner.quantity >= 5 },
+    18: { unlocked: false, message: "Bought a Space Miner!", condition: () => itemSpaceMiner.quantity >= 1 },
+    19: { unlocked: false, message: "Earned 50,000 BTC!", condition: () => parseFloat(localStorage.getItem("Bit")) >= 50000 },
+    20: { unlocked: false, message: "Owned 50 items in total!", condition: () => totalItemsBought() >= 50 },
+};
 
-    
 
+function totalItemsBought() {
+    return itemCalc.quantity + itemRspi.quantity + itemGpu.quantity + itemAsic.quantity +
+        itemFarm.quantity + itemHydroPlant.quantity + itemQuantumMiner.quantity + itemAiMiner.quantity + itemSpaceMiner.quantity;
+}
 
+function totalPowerGenerated() {
+    return itemCalc.watt * itemCalc.quantity +
+        itemRspi.watt * itemRspi.quantity +
+        itemGpu.watt * itemGpu.quantity +
+        itemAsic.watt * itemAsic.quantity +
+        itemFarm.watt * itemFarm.quantity +
+        itemHydroPlant.watt * itemHydroPlant.quantity +
+        itemQuantumMiner.watt * itemQuantumMiner.quantity +
+        itemAiMiner.watt * itemAiMiner.quantity +
+        itemSpaceMiner.watt * itemSpaceMiner.quantity;
+}
+
+function checkAchievements() {
+    Object.keys(achievements).forEach((id) => {
+        const achievement = achievements[id];
+        if (!achievement.unlocked && achievement.condition()) {
+            unlockAchievement(id, achievement.message);
+        }
+    });
+}
+
+// Unlock an achievement
+function unlockAchievement(id, message) {
+    achievements[id].unlocked = true;
+
+    // Update the achievement list in the UI
+    const achievementElement = document.getElementById(`achievement${id}`);
+    if (achievementElement) {
+        achievementElement.innerText = achievementElement.innerText.replace("(Locked)", "(Unlocked)");
+        achievementElement.classList.add("unlocked");
+    }
+
+    // Show a popup for the unlocked achievement
+    showAchievementPopup(message);
+}
+
+// Show Achievement Popup
+function showAchievementPopup(message) {
+    const popup = document.getElementById('achievementPopup');
+    const popupText = document.getElementById('achievementText');
+    popupText.innerText = message;
+    popup.style.display = 'block';
+}
+
+// Close Achievement Popup
+function closePopup() {
+    document.getElementById('achievementPopup').style.display = 'none';
+}

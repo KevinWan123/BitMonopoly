@@ -89,7 +89,47 @@ body {
 .Bank {
   grid-area: Bank;
 }
+.Achievements {
+  margin-top: 10px; /* Add some space above the box */
+  padding: 5px; 
+  border: 1px solid #ccc;
+  border-radius: 8px; /* Rounded corners for aesthetics */
+  background-color: rgba(245, 245, 245, 0.9); /* Light background */
+  width: 90%; /* Slightly smaller width compared to the parent container */
+  max-height: 120px; /* Reduce height to make the box smaller */
+  overflow-y: auto; /* Enable scrolling if content exceeds height */
+  font-size: 12px; /* Reduce font size for a compact look */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for better design */
+}
 
+.Achievements h3 {
+  margin: 0 0 5px 0; /* Reduce spacing around the heading */
+  font-size: 13px; /* Slightly smaller heading size */
+  text-align: center;
+  color: #333;
+}
+
+#achievementList {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#achievementList li {
+  padding: 3px 5px; /* Compact padding for list items */
+  margin: 2px 0; /* Reduce spacing between items */
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  color: #555;
+  font-size: 12px; /* Smaller font size for compactness */
+}
+
+#achievementList li.unlocked {
+  background-color: #4CAF50;
+  color: white;
+  font-weight: bold;
+}
 .Options {
   grid-area: Options;
   padding-bottom: 20vh;
