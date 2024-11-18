@@ -71,8 +71,15 @@
                 <p1 id = "btc"><b>BTC: = 0.000</b></p1></div>
                 
                 <div class="Items">
-                    <input id="Calculator" type="button" value="Calculator(0.1BTC): 0" onclick= "Calculator()">
-                    <input id = "pi" type="button" value="Raspberry Pi(1 BTC): 0" onclick="Rpi()">
+                    <input id="Calculator" type="button" value="🧮 Calculator (0.1 BTC): 0" onclick="Calculator()">
+                    <input id="pi" type="button" value="🍓 Raspberry Pi (1 BTC): 0" onclick="Rpi()">
+                    <input id="gpu" type="button" value="🎮 GPU Miner (10 BTC): 0" onclick="Gpu()">
+                    <input id="asic" type="button" value="💻 ASIC Miner (50 BTC): 0" onclick="Asic()">
+                    <input id="farm" type="button" value="🏭 Mining Farm (300 BTC): 0" onclick="Farm()">
+                    <input id="hydro" type="button" value="🌊 Hydro Plant (1000 BTC): 0" onclick="HydroPlant()">
+                    <input id="quantum" type="button" value="⚛️ Quantum Miner (5000 BTC): 0" onclick="QuantumMiner()">
+                    <input id="ai" type="button" value="🤖 AI Miner (10000 BTC): 0" onclick="AiMiner()">
+                    <input id="space" type="button" value="🚀 Space Miner (50000 BTC): 0" onclick="SpaceMiner()">
 
                     
                 </div>
@@ -126,6 +133,8 @@
                             let changetime = 'Month '+ parseInt(localStorage.getItem("Time"))
                             document.getElementById('Month').innerHTML= changetime.bold()
                         }
+
+
 
     </script>
     <p1> Game Made By Kevin Wan</p1>
