@@ -139,7 +139,7 @@ function buy(){
 
     }
 }
-// Achievement Dicstionary
+// Achievement Dictionary
 const achievements = {
     1: { unlocked: false, message: "Bought your first item!", condition: () => totalItemsBought() >= 1 },
     2: { unlocked: false, message: "Earned 10 BTC!", condition: () => parseFloat(localStorage.getItem("Bit")) >= 10 },
@@ -161,6 +161,16 @@ const achievements = {
     18: { unlocked: false, message: "Bought a Space Miner!", condition: () => itemSpaceMiner.quantity >= 1 },
     19: { unlocked: false, message: "Earned 50,000 BTC!", condition: () => parseFloat(localStorage.getItem("Bit")) >= 50000 },
     20: { unlocked: false, message: "Owned 50 items in total!", condition: () => totalItemsBought() >= 50 },
+    21: { unlocked: false, message: "Earned 100,000 BTC!", condition: () => parseFloat(localStorage.getItem("Bit")) >= 100000 },
+    22: { unlocked: false, message: "Owned 100 items in Total!", condition: () => totalItemsBought() >= 100 },
+    23: { unlocked: false, message: "Generated 1,000 Watts of Power!", condition: () => totalPowerGenerated() >= 1000 },
+    24: { unlocked: false, message: "Owned 10 Mining Farms!", condition: () => itemFarm.quantity >= 10 },
+    25: { unlocked: false, message: "Bought a Geothermal Plant!", condition: () => itemGeothermalPlant.quantity >= 1 },
+    26: { unlocked: false, message: "Earned 500,000 BTC!", condition: () => parseFloat(localStorage.getItem("Bit")) >= 500000 },
+    27: { unlocked: false, message: "Reached 100,000 Watts of Power!", condition: () => totalPowerGenerated() >= 100000 },
+    28: { unlocked: false, message: "Bought a Solar Plant!", condition: () => itemSolarPlant.quantity >= 1 },
+    29: { unlocked: false, message: "Own 10 Quantum Miners!", condition: () => itemQuantumMiner.quantity >= 10 },
+    30: { unlocked: false, message: "Earned 1,000,000 BTC!", condition: () => parseFloat(localStorage.getItem("Bit")) >= 1000000 }
 };
 
 

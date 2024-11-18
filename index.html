@@ -15,10 +15,18 @@
                 localStorage.setItem('Bit',0);
                 localStorage.setItem('ExchangeRate',100);
                 console.log(localStorage.getItem('ExchangeRate'));
-                localStorage.setItem('rasQuan',0)
-                localStorage.setItem('calcQuan',0)
-                localStorage.setItem("Income",0)
-
+                localStorage.setItem('rasQuan', 0); // Reset Raspberry Pi quantity
+                localStorage.setItem('calcQuan', 0); // Reset Calculator quantity
+                localStorage.setItem('gpuQuan', 0); // Reset GPU Miner quantity (add as needed)
+                localStorage.setItem('aiMinerQuan', 0); // Reset AI Miner quantity
+                localStorage.setItem('asicQuan', 0); // Reset ASIC Miner quantity
+                localStorage.setItem('farmQuan', 0); // Reset Mining Farm quantity
+                localStorage.setItem('quantumMinerQuan', 0); // Reset Quantum Miner quantity
+                localStorage.setItem('hydroPlantQuan', 0); // Reset Hydro Plant quantity
+                localStorage.setItem('spaceMinerQuan', 0); // Reset Space Miner quantity
+                localStorage.setItem('geothermalPlantQuan', 0); // Reset Geothermal Plant quantity
+                localStorage.setItem('solarPlantQuan', 0); // Reset Solar Plant quantity
+                localStorage.setItem('aiMinerQuan', 0); // Reset AI Miner quantity (for achievements)
                 localStorage.setItem('First',0);
                 localStorage.setItem('Fiat',0);
                 
@@ -122,6 +130,16 @@
                         <li id="achievement18">Buy a Space Miner (Locked)</li>
                         <li id="achievement19">Earn 50,000 BTC (Locked)</li>
                         <li id="achievement20">Own 50 Items in Total (Locked)</li>
+                        <li id="achievement21">Earn 100,000 BTC (Locked)</li>
+                        <li id="achievement22">Own 100 Items in Total (Locked)</li>
+                        <li id="achievement23">Generate 1,000 Watts of Power (Locked)</li>
+                        <li id="achievement24">Own 10 Mining Farms (Locked)</li>
+                        <li id="achievement25">Buy a Geothermal Plant (Locked)</li>
+                        <li id="achievement26">Earn 500,000 BTC (Locked)</li>
+                        <li id="achievement27">Reach 100,000 Watts of Power (Locked)</li>
+                        <li id="achievement28">Buy a Solar Plant (Locked)</li>
+                        <li id="achievement29">Own 10 Quantum Miners (Locked)</li>
+                        <li id="achievement30">Reach 1,000,000 BTC (Locked)</li>
                     </ul>
                 </div>
                     
@@ -130,35 +148,46 @@
                     <input type="button" onclick="updatetime()" value = "update">
                     <script>
                         function clearstorage(){
-                        console.log('pressed');
+                                                    console.log('pressed');
 
-                        
-                        localStorage.setItem('Time',0);
-                    localStorage.setItem('Bit',0);
-                    localStorage.setItem('ExchangeRate',100);
-                    console.log(localStorage.getItem('ExchangeRate'));
-                    localStorage.setItem('rasQuan',0)
-                    localStorage.setItem('calcQuan',0)
-                    localStorage.setItem("Income",0)
+                        // Reset values in localStorage
+                        localStorage.setItem('Time', 0);
+                        localStorage.setItem('Bit', 0);
+                        localStorage.setItem('ExchangeRate', 100);
+                        localStorage.setItem('rasQuan', 0);
+                        localStorage.setItem('calcQuan', 0);
+                        localStorage.setItem('gpuQuan', 0); 
+                        localStorage.setItem('aiMinerQuan', 0); 
+                        localStorage.setItem('asicQuan', 0); 
+                        localStorage.setItem('farmQuan', 0); 
+                        localStorage.setItem('quantumMinerQuan', 0); 
+                        localStorage.setItem('hydroPlantQuan', 0); 
+                        localStorage.setItem('spaceMinerQuan', 0); 
+                        localStorage.setItem('geothermalPlantQuan', 0); 
+                        localStorage.setItem('solarPlantQuan', 0); 
+                        localStorage.setItem('Income', 0);
+                        localStorage.setItem('Fiat', 0);
+                        localStorage.setItem('totalItemsBought', 0); 
+                        localStorage.setItem('totalPowerGenerated', 0); 
+                        localStorage.setItem('btcEarned', 0); 
 
-                    localStorage.setItem('First',0);
-                    localStorage.setItem('Fiat',0);
-                
-                        console.log('My new bit value is', localStorage.getItem('Bit'))
-                        
-                        let changetime = 'Month '+ parseInt(localStorage.getItem("Time"))
-                        let mystring = "BTC: "+ parseFloat(localStorage.getItem("Bit")).toFixed(3)
-                        let exchange = "BTC = $"+ parseFloat(localStorage.getItem("ExchangeRate")).toFixed(3)
-                        document.getElementById('Month').innerHTML= changetime.bold()
-                        document.getElementById('btc').innerHTML= mystring.bold()
-                        document.getElementById('Exchange').innerHTML= exchange.bold()
-                        }
+                        // Logging new values for confirmation
+                        console.log('New Bit value is', localStorage.getItem('Bit'));
+
+                        // Update the UI after clearing storage
+                        let changetime = 'Month ' + parseInt(localStorage.getItem("Time"));
+                        let mystring = "BTC: " + parseFloat(localStorage.getItem("Bit")).toFixed(3);
+                        let exchange = "BTC = $" + parseFloat(localStorage.getItem("ExchangeRate")).toFixed(3);
+                        document.getElementById('Month').innerHTML = changetime.bold();
+                        document.getElementById('btc').innerHTML = mystring.bold();
+                        document.getElementById('Exchange').innerHTML = exchange.bold();}
 
                         function updatetime(){
 
                             
                             let changetime = 'Month '+ parseInt(localStorage.getItem("Time"))
                             document.getElementById('Month').innerHTML= changetime.bold()
+                            
                         }
                         
 
