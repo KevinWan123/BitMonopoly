@@ -33,8 +33,6 @@ Chart.js is included in the `chart.js` file. Make sure this file is linked corre
 
 In your `index.html`, include the following script tag:
 
-```html
-
 
 
 
