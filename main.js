@@ -1,7 +1,7 @@
 
-function mineBTC(){
+function mineBTC(mine = 0.1){
     document.getElementById('click1').play()
-    localStorage.setItem("Bit",parseFloat(localStorage.getItem("Bit"))+.1)
+    localStorage.setItem("Bit",parseFloat(localStorage.getItem("Bit"))+mine)
 
     
 
