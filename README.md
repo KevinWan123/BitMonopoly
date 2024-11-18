@@ -1,7 +1,8 @@
 # BitMonopoly Game
 
 BitMonopoly is a simple clicker game where you mine Bitcoin, buy items, and manage your virtual assets. The game allows you to track your Bitcoin balance, make purchases, and see how the market changes with various events.
-https://kevinwan123.github.io/BitMonopoly/
+
+#### https://kevinwan123.github.io/BitMonopoly/
 
 ![image](https://github.com/user-attachments/assets/fbfd8e26-296e-47b6-ac2b-9785ec9ff51e)
 
