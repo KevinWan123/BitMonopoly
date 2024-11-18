@@ -1,22 +1,33 @@
 function event() {
-    var randomnum = (Math.random() * (5 - 0 + 1)) << 0;  // Expanded event range
-
-    const Events = [
-        'An increase in interest in crypto from retail investors has increased the price of BTC!', 
-        'A major crypto exchange has crashed due to misallocation of investor\'s funds!',
-        'A new disease that is extremely infectious is spreading throughout the country. Officials have decided that shutting down the country is for the best interest of the country. Investors are running to withdraw their money!',
-        'Bitcoin Halved, mining rewards reduced by 1/2, but bitcoin prices rose 20%',
-        'A new regulation is announced, making Bitcoin transactions easier and more secure. The price of BTC rises by 15%.', // New event 1
-        'A famous CEO tweets about Bitcoin, and the price spikes by 10%.', // New event 2
+    const weightedEvents = [
+        { event: 'An increase in interest in crypto from retail investors has increased the price of BTC!', weight: 3 }, // Positive
+        { event: 'A major crypto exchange has crashed due to misallocation of investor\'s funds!', weight: 1 }, // Negative
+        { event: 'A new disease that is extremely infectious is spreading throughout the country. Officials have decided that shutting down the country is for the best interest of the country. Investors are running to withdraw their money!', weight: 1 }, // Negative
+        { event: 'Bitcoin Halved, mining rewards reduced by 1/2, but bitcoin prices rose 20%', weight: 2 }, // Positive
+        { event: 'A new regulation is announced, making Bitcoin transactions easier and more secure. The price of BTC rises by 15%.', weight: 3 }, // Positive
+        { event: 'A famous CEO tweets about Bitcoin, and the price spikes by 10%.', weight: 3 }  // Positive
     ];
 
+
+    const weightedPool = [];
+    weightedEvents.forEach((item, index) => {
+        for (let i = 0; i < item.weight; i++) {
+            weightedPool.push(index);
+        }
+    });
+
+
+    const randomnum = weightedPool[Math.floor(Math.random() * weightedPool.length)];
+
+
+    const Events = weightedEvents.map(item => item.event);
     console.log(Events[randomnum]);
 
-    let currentRate = parseInt(localStorage.getItem('ExchangeRate'));
+    let currentRate = parseInt(localStorage.getItem('ExchangeRate')) || 100; 
 
-    // Ensure Bitcoin price doesn't go below a minimum value (e.g., 1 USD)
-    const minPrice = 1;
-    
+    // mIN PRICE 50 USD
+    const minPrice = 50;
+
     if (randomnum === 0) {
         console.log('Interest in Crypto Event');
         currentRate = parseInt(currentRate * 1.3);
@@ -47,7 +58,7 @@ function event() {
     document.getElementById('Exchange').innerHTML = 'BTC = ' + currentRate + ' USD';
 
     // Display visual feedback based on the event
-    setTimeout(function() {
+    setTimeout(function () {
         if (randomnum === 0 || randomnum === 4 || randomnum === 5) {
             // Green feedback for price increase events
             document.getElementById('Exchange').style.color = 'green';
@@ -59,8 +70,8 @@ function event() {
         }
     }, 500);
 
-
     document.getElementById('Exchange').style.color = 'white';
     document.getElementById('Exchange').style.fontSize = '25px';
     document.getElementById("Newspaper").innerHTML = Events[randomnum];
+
 }
